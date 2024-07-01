@@ -1,0 +1,9 @@
+<div class="landing-container">
+  <section class="vacancy-section">
+    <app-vacancy></app-vacancy>
+  </section>
+  <section class="login-section">
+    <app-login *ngIf="!isRegistering" (switchToRegister)="toggleRegister(true)"></app-login>
+    <app-register *ngIf="isRegistering" (switchToLogin)="toggleRegister(false)"></app-register>
+  </section>
+</div>

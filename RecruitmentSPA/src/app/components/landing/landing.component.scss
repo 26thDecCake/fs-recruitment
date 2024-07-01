@@ -1,0 +1,22 @@
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  background-color: lightblue;
+}
+
+.vacancy-section {
+  // display: flex;
+  // justify-content: center;
+  // align-items: flex-start;
+  padding: 20px;
+  background-color: rgb(255, 207, 118);
+}
+
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}

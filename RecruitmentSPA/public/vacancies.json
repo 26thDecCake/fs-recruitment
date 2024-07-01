@@ -1,0 +1,101 @@
+[
+  {
+    "title": "Software Engineer",
+    "description": "We are looking for a skilled software engineer.",
+    "details": "Full-stack development with Angular and .NET Core.",
+    "requirements": [
+      "Experience with Angular",
+      "Experience with .NET Core",
+      "Familiarity with SQL Server",
+      "Good problem-solving skills"
+    ]
+  },
+  {
+    "title": "Project Manager",
+    "description": "We need an experienced project manager.",
+    "details": "Managing software development projects.",
+    "requirements": [
+      "Experience in project management",
+      "Strong communication skills",
+      "Ability to work under pressure",
+      "Experience with Agile methodologies"
+    ]
+  },
+  {
+    "title": "Data Analyst",
+    "description": "Seeking a data analyst to interpret complex datasets.",
+    "details": "Analyzing data trends and patterns.",
+    "requirements": [
+      "Proficiency in SQL",
+      "Experience with data visualization tools",
+      "Strong analytical skills",
+      "Attention to detail"
+    ]
+  },
+  {
+    "title": "Software Engineer",
+    "description": "We are looking for a skilled software engineer.",
+    "details": "Full-stack development with Angular and .NET Core.",
+    "requirements": [
+      "Experience with Angular",
+      "Experience with .NET Core",
+      "Familiarity with SQL Server",
+      "Good problem-solving skills"
+    ]
+  },
+  {
+    "title": "Project Manager",
+    "description": "We need an experienced project manager.",
+    "details": "Managing software development projects.",
+    "requirements": [
+      "Experience in project management",
+      "Strong communication skills",
+      "Ability to work under pressure",
+      "Experience with Agile methodologies"
+    ]
+  },
+  {
+    "title": "Data Analyst",
+    "description": "Seeking a data analyst to interpret complex datasets.",
+    "details": "Analyzing data trends and patterns.",
+    "requirements": [
+      "Proficiency in SQL",
+      "Experience with data visualization tools",
+      "Strong analytical skills",
+      "Attention to detail"
+    ]
+  },
+  {
+    "title": "Software Engineer",
+    "description": "We are looking for a skilled software engineer.",
+    "details": "Full-stack development with Angular and .NET Core.",
+    "requirements": [
+      "Experience with Angular",
+      "Experience with .NET Core",
+      "Familiarity with SQL Server",
+      "Good problem-solving skills"
+    ]
+  },
+  {
+    "title": "Project Manager",
+    "description": "We need an experienced project manager.",
+    "details": "Managing software development projects.",
+    "requirements": [
+      "Experience in project management",
+      "Strong communication skills",
+      "Ability to work under pressure",
+      "Experience with Agile methodologies"
+    ]
+  },
+  {
+    "title": "Data Analyst",
+    "description": "Seeking a data analyst to interpret complex datasets.",
+    "details": "Analyzing data trends and patterns.",
+    "requirements": [
+      "Proficiency in SQL",
+      "Experience with data visualization tools",
+      "Strong analytical skills",
+      "Attention to detail"
+    ]
+  }
+]
