@@ -7,6 +7,7 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { IntroductoryComponent } from '../introductory/introductory.component';
 
 @Component({
   selector: 'app-landing',
@@ -18,6 +19,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     LoginComponent,
     RegisterComponent,
     VacancyComponent,
+    IntroductoryComponent,
   ],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss',

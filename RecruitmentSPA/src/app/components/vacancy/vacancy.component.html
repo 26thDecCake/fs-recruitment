@@ -17,41 +17,5 @@
 </mat-accordion>
 
 <ng-template #loading>
-  <div class="flex-center">
-    <p>Loading vacancies...</p>
-  </div>
+  <p>Loading vacancies...</p>
 </ng-template>
-
-
-<!-- 
-<mat-card>
-  <mat-card-title>Vacancies</mat-card-title>
-  <mat-card-content>
-    <mat-accordion *ngIf="!isLoading; else loading">
-      <mat-expansion-panel *ngFor="let vacancy of vacancies">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{ vacancy.title }}
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <div>
-          <p>{{ vacancy.description }}</p>
-          <p>{{ vacancy.details }}</p>
-          <h6>Requirements:</h6>
-          <ul>
-            <li *ngFor="let requirement of vacancy.requirements">{{ requirement }}</li>
-          </ul>
-        </div>
-      </mat-expansion-panel>
-    </mat-accordion>
-  </mat-card-content>
-</mat-card>
-
-<ng-template #loading>
-  <mat-card>
-    <mat-card-title>Vacancies</mat-card-title>
-    <mat-card-content>
-      <p>Loading vacancies...</p>
-    </mat-card-content>
-  </mat-card>
-</ng-template> -->

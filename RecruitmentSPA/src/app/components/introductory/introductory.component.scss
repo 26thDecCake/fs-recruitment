@@ -1,0 +1,123 @@
+$color-primary: #333;
+$color-secondary: #666;
+
+.intro-container {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.intro-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: $color-primary;
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  color: $color-secondary;
+}
+
+.scroll-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+
+  .scroll-text {
+    font-size: 1.1rem;
+    margin: 80px 0px 20px 0px;
+    color: $color-primary;
+  }
+
+  .mouse {
+    height: 50px;
+    width: 35px;
+    border-radius: 14px;
+    border: 2px solid $color-secondary;
+  }
+  .mouse:after {
+    content: "";
+    display: block;
+    height: 8px;
+    width: 2px;
+    margin: 10px auto;
+    background: $color-secondary;
+    position: relative;
+    -webkit-animation: a 1.2s ease infinite;
+    animation: a 1.2s ease infinite;
+  }
+  .arrow-scroll {
+    width: 35px;
+    margin-top: 10px;
+  }
+  .arrow-scroll > span {
+    font-family: Arial, sans-serif;
+    display: block;
+    width: 9px;
+    height: 9px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-right: 2px solid $color-secondary;
+    border-bottom: 2px solid $color-secondary;
+    margin: 5px auto 3px;
+    -webkit-animation: b 1s infinite;
+    animation: b 1s infinite;
+    -webkit-animation-delay: 0.2s;
+    animation-delay: 0.2s;
+  }
+  .arrow-scroll > span:first-child {
+    -webkit-animation-delay: 0.1s;
+    animation-delay: 0.1s;
+  }
+  .arrow-scroll > span:last-child {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+  }
+  @-webkit-keyframes a {
+    0% {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+  }
+  @keyframes a {
+    0% {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+    }
+  }
+  @-webkit-keyframes b {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes b {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

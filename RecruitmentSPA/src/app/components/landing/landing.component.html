@@ -1,8 +1,13 @@
 <div class="landing-container">
-  <section class="vacancy-section">
+  <section class="introductory-section" id="introductorySection">
+    <app-introductory></app-introductory>
+  </section>
+  <section class="vacancy-section" id="vacancySection" #vacancySection>
+    <h6>You can view our vacancies below.</h6>
     <app-vacancy></app-vacancy>
   </section>
-  <section class="login-section">
+  <section class="login-section" id="loginSection">
+    <h6>Create your account now or login to apply for jobs!</h6>
     <app-login *ngIf="!isRegistering" (switchToRegister)="toggleRegister(true)"></app-login>
     <app-register *ngIf="isRegistering" (switchToLogin)="toggleRegister(false)"></app-register>
   </section>
