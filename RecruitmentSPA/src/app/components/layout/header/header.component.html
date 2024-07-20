@@ -1,1 +1,20 @@
-<p>header works!</p>
+<!-- header.component.html -->
+<mat-toolbar color="primary" class="header-toolbar">
+  <div class="title">
+    <span class="header-title">Recruitment</span>
+  </div>
+  <div class="nav-menu">
+    <button mat-button routerLink="/home" routerLinkActive="active-link" class="white">Home</button>
+    <button mat-button routerLink="/account" routerLinkActive="active-link" class="white">Account</button>
+    <button mat-button routerLink="/profiles" routerLinkActive="active-link" class="white">Profiles</button>
+  </div>
+  <div class="profile">
+    <button mat-button [matMenuTriggerFor]="profileMenu" aria-label="User profile menu">
+      <img src="pp.png" class="profile-picture" alt="User Profile" width="25" height="25">
+      {{ user?.fullName }}
+    </button>
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item (click)="logout()">Logout</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

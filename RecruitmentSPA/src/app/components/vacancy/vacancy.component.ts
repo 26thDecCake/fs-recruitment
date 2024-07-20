@@ -3,6 +3,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { Vacancy } from '../../models/vacancy';
 import { VacancyService } from '../../services/vacancy.service';
 import { CommonModule } from '@angular/common';
+import { catchError, filter, map, of, tap } from 'rxjs';
 
 @Component({
   selector: 'app-vacancy',
@@ -21,16 +22,37 @@ export class VacancyComponent implements OnInit {
   private vacancyService = inject(VacancyService);
 
   ngOnInit(): void {
-    this.vacancyService.getVacancies().subscribe(
-      (data) => {
-        this.vacancies = data;
-        this.isLoading = false;
-      },
-      (error) => {
-        console.error('Error fetching vacancies:', error);
-        this.isLoading = false;
-      }
-    );
+    this.vacancyService
+      .getVacancies()
+      .pipe(
+        // tap((data) => {
+        //   this.vacancies = data;
+        //   this.isLoading = false;
+        // }),
+        map((data) => {
+          this.vacancies = data.filter(
+            (vacancy) => vacancy.title === 'Software Engineer'
+          );
+          this.isLoading = false;
+        }),
+        catchError((error) => {
+          console.error('Error fetching vacancies:', error);
+          this.isLoading = false;
+          return of(null);
+        })
+      )
+      .subscribe();
+
+    // this.vacancyService.getVacancies().subscribe(
+    //   (data) => {
+    //     this.vacancies = data;
+    //     this.isLoading = false;
+    //   },
+    //   (error) => {
+    //     console.error('Error fetching vacancies:', error);
+    //     this.isLoading = false;
+    //   }
+    // );
   }
 
   // toggleRow(element: Vacancy): void {

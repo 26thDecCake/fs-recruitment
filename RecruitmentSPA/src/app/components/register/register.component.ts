@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { tap, catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -28,14 +29,15 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
-  registerForm: FormGroup;
-  successMessage: string = '';
-  errorMessage: string = '';
   @Output() switchToLogin = new EventEmitter<boolean>();
 
   private formBuilder = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);
+
+  registerForm: FormGroup;
+  successMessage: string = '';
+  errorMessage: string = '';
 
   constructor() {
     this.registerForm = this.formBuilder.group({
@@ -50,13 +52,28 @@ export class RegisterComponent {
       const registerData: RegisterDTO = this.registerForm.value;
       console.log(registerData);
 
-      this.authService.register(registerData).subscribe(
-        () => {
-          this.successMessage = 'Registration successful!';
-          this.router.navigate(['/login']);
-        },
-        () => (this.errorMessage = 'Registration failed. Please try again.')
-      );
+      this.authService
+        .register(registerData)
+        .pipe(
+          tap(() => {
+            this.successMessage = 'Registration successful!';
+            this.router.navigate(['/login']);
+          }),
+          catchError((error) => {
+            console.error('Error fetching vacancies:', error);
+            this.errorMessage = 'Registration failed. Please try again.';
+            return of(null);
+          })
+        )
+        .subscribe();
+
+      // this.authService.register(registerData).subscribe(
+      //   () => {
+      //     this.successMessage = 'Registration successful!';
+      //     this.router.navigate(['/login']);
+      //   },
+      //   () => (this.errorMessage = 'Registration failed. Please try again.')
+      // );
     }
   }
 

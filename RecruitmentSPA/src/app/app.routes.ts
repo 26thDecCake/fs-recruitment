@@ -18,6 +18,18 @@ export const routes: Routes = [
     title: 'Home',
   },
   {
+    path: 'account',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+    title: 'Account',
+  },
+  {
+    path: 'profiles',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+    title: 'Profiles',
+  },
+  {
     path: '',
     component: LandingComponent,
   },

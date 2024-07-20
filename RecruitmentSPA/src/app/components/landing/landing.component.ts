@@ -5,8 +5,6 @@ import { LoginComponent } from '../login/login.component';
 import { RegisterComponent } from '../register/register.component';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { IntroductoryComponent } from '../introductory/introductory.component';
 
 @Component({
@@ -14,8 +12,6 @@ import { IntroductoryComponent } from '../introductory/introductory.component';
   standalone: true,
   imports: [
     CommonModule,
-    MatGridListModule,
-    MatToolbarModule,
     LoginComponent,
     RegisterComponent,
     VacancyComponent,
@@ -31,6 +27,11 @@ export class LandingComponent implements OnInit {
   private router = inject(Router);
 
   ngOnInit(): void {
+    // const currentUser = this.authService.currentUserValue;
+    // if (currentUser) {
+    //   this.router.navigate(['/home']);
+    // }
+
     const isLoggedIn = this.authService.loggedIn();
     if (isLoggedIn) {
       this.router.navigate(['/home']);

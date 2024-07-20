@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { env } from '../../environments/environment';
-import { LoginDTO, RegisterDTO } from '../models/auth';
+import { LoginDTO, RegisterDTO, UserDetailDTO } from '../models/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -53,5 +53,9 @@ export class AuthService {
 
   getToken() {
     return JSON.parse(localStorage.getItem('currentUser')!)?.token;
+  }
+
+  getUserDetail() {
+    return this.http.get<UserDetailDTO>(`${this.baseUrl}account/detail`);
   }
 }

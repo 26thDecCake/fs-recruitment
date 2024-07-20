@@ -1,0 +1,31 @@
+.header-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background-color: #3f51b5;
+  color: white;
+}
+
+.white {
+  color: white;
+}
+
+.nav-menu {
+  flex-grow: 1;
+
+  button {
+    color: white;
+  }
+}
+
+.profile {
+  button {
+    width: fit-content;
+    color: white;
+  }
+}
+
+.header-title {
+  font-size: 1.5rem;
+}

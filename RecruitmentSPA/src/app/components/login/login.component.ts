@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { tap, catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -28,13 +29,15 @@ import { MatInputModule } from '@angular/material/input';
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
-  loginForm: FormGroup;
-  errorMessage: string = '';
   @Output() switchToRegister = new EventEmitter<boolean>();
 
   private formBuilder = inject(FormBuilder);
   private authService = inject(AuthService);
   private router = inject(Router);
+
+  loginForm: FormGroup;
+  errorMessage: string = '';
+  successMessage: string = '';
 
   constructor() {
     this.loginForm = this.formBuilder.group({
@@ -48,10 +51,25 @@ export class LoginComponent {
       const loginData: LoginDTO = this.loginForm.value;
       console.log(loginData);
 
-      this.authService.login(loginData).subscribe(
-        () => this.router.navigate(['/home']),
-        () => (this.errorMessage = 'Invalid login credentials')
-      );
+      this.authService
+        .login(loginData)
+        .pipe(
+          tap(() => {
+            this.successMessage = 'Login successful!';
+            this.router.navigate(['/home']);
+          }),
+          catchError((error) => {
+            console.error('Error fetching vacancies:', error);
+            this.errorMessage = 'Invalid login credentials';
+            return of(null);
+          })
+        )
+        .subscribe();
+
+      // this.authService.login(loginData).subscribe(
+      //   () => this.router.navigate(['/home']),
+      //   () => (this.errorMessage = 'Invalid login credentials')
+      // );
     }
   }
 
